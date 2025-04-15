@@ -7,3 +7,9 @@ pymongo==4.5.0
 # source venv/bin/activate  # Activate it (For macOS/Linux)
 # venv\Scripts\activate  # Activate it (For Windows)
 #pip install -r requirements.txt
+
+
+#python -m venv venv
+#call venv\Script\active
+#pip install Flask
+#start /B python app.py
