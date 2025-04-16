@@ -7,6 +7,7 @@ function validateForm() {
     let confirmPassword = document.getElementById('confirmPassword').value;
     let gender = document.querySelector('input[name="gender"]:checked');
 
+    // let errorMessages = '';
     let errorMessages = '';
 
     if (!fullname) {

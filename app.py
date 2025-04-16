@@ -1,13 +1,13 @@
 from flask import Flask, render_template, request, jsonify
-from pymongo import MongoClient
+# from pymongo import MongoClient
 from werkzeug.security import generate_password_hash
 
 app = Flask(__name__)
 
 # MongoDB Configuration
-client = MongoClient("mongodb://localhost:27017/")
-db = client['user_registration']
-users_collection = db['users']
+# client = MongoClient("mongodb://localhost:27017/")
+# db = client['user_registration']
+# users_collection = db['users']
 
 @app.route('/')
 def index():
@@ -31,8 +31,8 @@ def register():
             return jsonify({'error': 'All fields are required'}), 400
 
         # Check for existing email or phone number
-        if users_collection.find_one({"email": email}) or users_collection.find_one({"phone": phone}):
-            return jsonify({'error': 'Email or Phone number already registered'}), 400
+        # if users_collection.find_one({"email": email}) or users_collection.find_one({"phone": phone}):
+        #     return jsonify({'error': 'Email or Phone number already registered'}), 400
 
         # Hash password before storing
         hashed_password = generate_password_hash(password)
@@ -46,8 +46,8 @@ def register():
             'password': hashed_password,
             'gender': gender
         }
-        users_collection.insert_one(user)
-        return jsonify({'message': 'Registration Successful'}), 200
+        # users_collection.insert_one(user)
+        # return jsonify({'message': 'Registration Successful'}), 200
 
     except Exception as e:
         print("Error:", e)
